@@ -116,7 +116,7 @@ header {
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr 160px 1fr;
-    grid-template-rows: 2fr 80px 1fr;
+    grid-template-rows: 2fr 80px 1.25fr;
 
     height: 100%;
 }
@@ -133,6 +133,10 @@ header {
 .hero img {
     object-fit: cover;
     object-position: left;
+}
+
+.hero_mobile {
+    display: none;
 }
 
 .introduction {
@@ -163,7 +167,7 @@ header {
     margin: 30px 0;
 
     line-height: 1.5;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--grey);
 }
 
@@ -222,7 +226,7 @@ header {
 
     height: 100%;
 
-    margin: 0 80px;
+    margin: 0 40px;
 
     grid-row-start: 3;
     grid-row-end: 4;
@@ -231,14 +235,15 @@ header {
 }
 
 .about h2 {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
 
     letter-spacing: 4px;
 }
 
 .about p {
-    font-size: 14px;
+    line-height: 1.5;
+    font-size: 13px;
     color: var(--grey);
 }
 
@@ -268,7 +273,7 @@ header {
 
 /***
 
-    Mobile
+    Media queries
 
 ***/
 
@@ -299,26 +304,31 @@ header {
     }
 
     .navbar_mobile_opened {
+        position: fixed;
+        top: 0;
+        left: 0;
+
         display: none;
         justify-content: space-around;
 
         padding: 0 20px;
         height: 100px;
+        width: 100%;
 
         background-color: var(--light);
     }
 
     .navbar_mobile_closed {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
 
         padding: 0 20px;
         height: 100px;
-
-        background-color: var(--dark);
     }
 
     .navbar_open {
+        z-index: 10;
+
         display: flex;
         align-items: center;
 
@@ -329,6 +339,10 @@ header {
     }
 
     .navbar_close {
+        height: min-content;
+        align-self: center;
+        padding: 10px;
+
         background-color: transparent;
         border: none;
 
@@ -346,8 +360,9 @@ header {
     }
 
     .mobile_menu a {
-        color: var(--dark);
         margin-right: 0;
+
+        color: var(--dark);
 
         text-decoration: none;
         font-size: 13px;
@@ -355,10 +370,15 @@ header {
     }
 
     .logo_mobile {
+        position: absolute;
+        top: 0;
+        left: 0;
+
         display: flex;
         justify-content: center;
         align-items: center;
 
+        height: 100%;
         width: 100vw;
     }
 
@@ -367,5 +387,60 @@ header {
         font-weight: 600;
         text-decoration: none;
         color: var(--light);
+    }
+
+    /***
+
+        Main Content
+
+    ***/
+
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero {
+        display: none;
+    }
+
+    .hero_mobile {
+        position: relative;
+        display: block;
+    }
+
+    .hero_btns {
+        display: none;
+    }
+
+    .hero_mobile_btns {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+    }
+
+    .hero_mobile_btns button {
+        padding: 15px 20px;
+        margin: 0;
+        border: none;
+        background-color: var(--dark);
+
+        cursor: pointer;
+    }
+
+    .hero_mobile_btns button:hover {
+        background-color: var(--dark_grey);
+    }
+
+    .introduction_body {
+        margin: 60px 30px;
+    }
+
+    .introduction_body h1 {
+        font-size: 26px;
+    }
+
+    .about {
+        margin: 60px 30px;
     }
 }
