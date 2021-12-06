@@ -14,7 +14,7 @@ Users should be able to:
 - See hover states for all interactive elements on the page
 - Navigate the slider using either their mouse/trackpad or keyboard
 
-### Screenshots
+### Project Screenshots
 
 ![Desktop view](https://i.imgur.com/7VJVzSW.png)
 
